@@ -2,13 +2,18 @@ package Discord.Bot;
 
 import javax.security.auth.login.LoginException;
 
-import net.dv8tion.jda.api.AccountType;
+import Commands.Clear;
+import Commands.Commands;
+import Commands.LastoriginCommands;
+import Commands.Status;
+import Commands.UserInfoCommand;
+import Discord.Bot.Events.GuildMemberJoin;
+import Discord.Bot.Events.GuildMessageReactionAdd;
+import Discord.Bot.Events.GuildMessageReceived;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.*;
 
 public class MainApp extends ListenerAdapter{
 	public static String prefix = "!";
@@ -16,16 +21,19 @@ public class MainApp extends ListenerAdapter{
 	
 
 	public static void main(String [] args) throws LoginException {
-		String token = "";			// BOT Token.
+		String token = "NzcyNDIxMjEwODAxMDQ1NTA1.X56bTw.pRxY8RQKEXfkE07AHapVlt5RTOs";
 		jda = JDABuilder.createDefault(token).build();
 		
-		jda.getPresence().setActivity(Activity.playing("Currently Working"));
+		jda.getPresence().setActivity(Activity.playing("Áö±Ý »óÈ² ÆÄ¾ÇÀÌ ¾ÈµÅ?"));
 		
-		Commands cmd = new Commands();
-		Clear clear = new Clear();
-		jda.addEventListener(cmd);
-		jda.addEventListener(clear);
+		jda.addEventListener(new Commands());
+		jda.addEventListener(new Clear());
 		jda.addEventListener(new Status());
+		jda.addEventListener(new GuildMemberJoin());
+		jda.addEventListener(new GuildMessageReceived());
+		jda.addEventListener(new GuildMessageReactionAdd());
+		jda.addEventListener(new LastoriginCommands());
+		jda.addEventListener(new UserInfoCommand());
 	}
 	
 
