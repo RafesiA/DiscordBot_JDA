@@ -21,10 +21,10 @@ public class MainApp extends ListenerAdapter{
 	
 
 	public static void main(String [] args) throws LoginException {
-		String token = "NzcyNDIxMjEwODAxMDQ1NTA1.X56bTw.pRxY8RQKEXfkE07AHapVlt5RTOs";
+		String token = "Your Token here";
 		jda = JDABuilder.createDefault(token).build();
 		
-		jda.getPresence().setActivity(Activity.playing("Áö±Ý »óÈ² ÆÄ¾ÇÀÌ ¾ÈµÅ?"));
+		jda.getPresence().setActivity(Activity.playing("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È² ï¿½Ä¾ï¿½ï¿½ï¿½ ï¿½Èµï¿½?"));
 		
 		jda.addEventListener(new Commands());
 		jda.addEventListener(new Clear());
