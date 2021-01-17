@@ -19,10 +19,10 @@ public class MainApp extends ListenerAdapter{
 	
 
 	public static void main(String [] args) throws LoginException {
-		String token = "NzcyNDIxMjEwODAxMDQ1NTA1.X56bTw.pRxY8RQKEXfkE07AHapVlt5RTOs";
+		String token = "Your Token Here";
 		jda = JDABuilder.createDefault(token).build();
 		
-		jda.getPresence().setActivity(Activity.playing("¸»ÇÒ¼öÀÖÀ½"));
+		jda.getPresence().setActivity(Activity.playing("Â¸Â»Ã‡Ã’Â¼Ã¶Ã€Ã–Ã€Â½"));
 		
 		Commands cmd = new Commands();
 		jda.addEventListener(cmd);
